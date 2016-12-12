@@ -26,11 +26,41 @@
       // Google asks for all API users to sign up for an API key
       // For simple tests, still works without an API key
       var api = 'http://maps.googleapis.com/maps/api/geocode/json';
+//      var googlekey='&key=AIzaSyDuECh_YoiNk2yA38hAhUwHNfV1qs8fEIk';
 
       function findLocation() {
+          var zipcode=document.getElementById('zipcode');
+          var url=api + '?address=' + zipcode.value  ;
+
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', url, true);
+          xhr.onreadystatechange = function () {
+//              console.log('readyState: ' + xhr.readyState);
+              if(xhr.readyState <4) {
+            showLoading();
+              }
+              if(xhr.readyState == 4 && xhr.status == 200) {
+                  outputLocation(xhr.responseText);
+              }
+          };
+          xhr.send();
+
+
+      }
+
+      function showLoading() {
+          var target = document.getElementById('location');
+          target.innerHTML = 'Loading...';
       }
 
       function outputLocation(data) {
+          var target = document.getElementById('location');
+          var json=JSON.parse(data);
+          var address=json.results[0].formatted_address;
+          target.innerHTML = address;
+
+
+
       }
 
       var button = document.getElementById ("ajax-button");

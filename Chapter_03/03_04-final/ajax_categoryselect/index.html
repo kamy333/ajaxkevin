@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Ajax Category Select</title>
-    <style>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+      <style>
       #subcategory-select {
         display: none;
       }
@@ -40,7 +42,7 @@
             subcat_select.innerHTML = xhr.responseText;
             subcat_select.style.display = 'inline';
           }
-        }
+        };
         xhr.send();
       }
 

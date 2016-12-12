@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Ajax Zip Code</title>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <style>
       #entry {
         margin: 2em 1em;
@@ -30,19 +30,15 @@
 
       function findLocation() {
         var zipcode = document.getElementById('zipcode');
+        zipcode.value="90210";
         var url = api + '?address=' + zipcode.value;
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.onreadystatechange = function () {
-          if(xhr.readyState < 4) {
-            showLoading();
-          }
-          if(xhr.readyState == 4 && xhr.status == 200) {
-            outputLocation(xhr.responseText);
-          }
-        };
-        xhr.send();
+//
+
+          $.get(url,function (data) {
+              outputLocation(data);
+        })
+
       }
 
       function showLoading() {
@@ -52,8 +48,10 @@
 
       function outputLocation(data) {
         var target = document.getElementById('location');
-        var json = JSON.parse(data);
-        var address = json.results[0].formatted_address;
+//        var json = JSON.parse(data);
+          var json = data;
+
+          var address = json.results[0].formatted_address;
         target.innerHTML = address;
       }
 

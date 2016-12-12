@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <title>Ajax Autosuggest</title>
     <link rel="stylesheet" media="all" href="assets/public.css" />
-    <script src="assets/public.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+      <script src="assets/public.js"></script>
   </head>
   <body>
 

@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Asynchronous Form</title>
-    <style>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <style>
       #result {
         display: none;
       }

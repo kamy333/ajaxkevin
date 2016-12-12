@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Infinite Scroll</title>
-    <style>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <style>
       #blog-posts {
         width: 700px;
       }
